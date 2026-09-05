@@ -1,0 +1,19 @@
+{
+  "messages": [
+    "Tip: You can choose video and audio quality separately before downloading.",
+    "Tip: Use Audio only when you just need the soundtrack.",
+    "Tip: YouLoad keeps your recent activity so you can find downloads again quickly.",
+    "Tip: You can cancel an active download at any time.",
+    "Tip: Queue multiple videos and let YouLoad handle them one after another.",
+    "Tip: Choose your download folder before starting a download.",
+    "Fact: YouLoad uses yt-dlp to handle video extraction.",
+    "Fact: FFmpeg is used when YouLoad needs to merge or process media streams.",
+    "Tip: Higher video quality usually means a larger download.",
+    "Tip: For smaller files, choose a lower video resolution and audio quality.",
+    "Fact: YouLoad is made by NISPAX InfoTech.",
+    "Tip: You can open the original video directly from Recent Activity.",
+    "Tip: If a video has separate video and audio streams, YouLoad can combine them for you.",
+    "Tip: Keep YouLoad updated from Settings to get the latest downloader and runtime fixes.",
+    "Tip: Check the Queue page to see downloads waiting to start."
+  ]
+}

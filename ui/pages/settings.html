@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouLoad</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<section class="page-view page" data-view="settings">
+    <div class="page-heading">
+        <h1>Settings</h1>
+        <p>Manage local data and application components.</p>
+    </div>
+
+    <div class="settings-group">
+        <div class="settings-row">
+            <div class="settings-name">Application</div>
+            <div class="settings-value">YouLoad</div>
+        </div>
+
+        <div class="settings-row">
+            <div class="settings-name">Version</div>
+            <div class="settings-value">0.3.0</div>
+        </div>
+
+        <div class="settings-row">
+            <div class="settings-name">Publisher</div>
+            <div class="settings-value">NISPAX InfoTech</div>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <div>
+            <h2>Updates</h2>
+            <div id="updateCheckTime" class="section-note">
+                Not checked yet
+            </div>
+        </div>
+
+        <div class="update-header-actions">
+            <button
+                id="updatesInfoButton"
+                class="icon-button"
+                type="button"
+                title="About dependencies and updates"
+                aria-label="About dependencies and updates"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 10v6"></path>
+                    <circle cx="12" cy="7" r="0.8" fill="currentColor" stroke="none"></circle>
+                </svg>
+            </button>
+
+            <button
+                id="refreshUpdatesButton"
+                class="icon-button"
+                type="button"
+                title="Refresh update information"
+                aria-label="Refresh update information"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 11a8 8 0 0 0-14.7-4.2L4 9"></path>
+                    <path d="M4 4v5h5"></path>
+                    <path d="M4 13a8 8 0 0 0 14.7 4.2L20 15"></path>
+                    <path d="M20 20v-5h-5"></path>
+                </svg>
+            </button>
+
+            <button
+                id="checkUpdatesButton"
+                class="secondary-button"
+                type="button"
+            >
+                Check for updates
+            </button>
+        </div>
+    </div>
+
+    <div id="updateResults" class="update-results">
+        <div class="update-empty">
+            Click "Check for updates" to check YouLoad
+            and its bundled components.
+        </div>
+    </div>
+
+    <button
+        id="clearAllDataButton"
+        class="danger-button"
+        type="button"
+    >
+        Clear local history and queue
+    </button>
+</section>
+
+<div
+    id="updatesInfoModal"
+    class="info-modal is-hidden"
+    aria-hidden="true"
+>
+    <div class="info-modal-backdrop" data-close-updates-info></div>
+
+    <section
+        class="info-modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="updatesInfoTitle"
+    >
+        <div class="info-modal-header">
+            <div>
+                <h2 id="updatesInfoTitle">About dependencies</h2>
+                <p>
+                    What YouLoad checks and how updates are handled.
+                </p>
+            </div>
+
+            <button
+                id="closeUpdatesInfo"
+                class="icon-button"
+                type="button"
+                title="Close"
+                aria-label="Close"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12"></path>
+                    <path d="M18 6L6 18"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="info-modal-body">
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">YouLoad</div>
+                <p>
+                    The main application. Its releases are checked through
+                    the official YouLoad GitHub repository.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">PySide6</div>
+                <p>
+                    Provides the Qt-based desktop application framework used
+                    by YouLoad.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">PySide6 Essentials</div>
+                <p>
+                    Provides core Qt Python bindings and modules used by the
+                    application.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">PySide6 Addons</div>
+                <p>
+                    Provides additional Qt modules used by the desktop
+                    interface and supporting features.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">Shiboken6</div>
+                <p>
+                    Provides the binding support used by PySide6.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">yt-dlp</div>
+                <p>
+                    Handles video and media information retrieval and the
+                    download layer used by YouLoad.
+                </p>
+            </div>
+
+            <div class="dependency-info-item">
+                <div class="dependency-info-name">FFmpeg</div>
+                <p>
+                    Handles media processing tasks such as stream merging
+                    and format conversion when required.
+                </p>
+            </div>
+
+            <div class="dependency-info-note">
+                <strong>Why some updates say "Included in app update"</strong>
+                <p>
+                    Components such as PySide6 are part of the packaged
+                    YouLoad runtime. Replacing them while YouLoad is running
+                    is unsafe, so their updates are delivered with a newer
+                    YouLoad release instead.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="../js/page.js"></script>
+</body>
+</html>

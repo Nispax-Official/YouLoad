@@ -1,0 +1,53 @@
+{
+    "application": {
+        "name": "YouLoad",
+        "github_owner": "Nispax-Official",
+        "github_repository": "YouLoad",
+        "include_prereleases": false,
+        "asset_patterns": [
+            "(?i)^YouLoad.*\\.exe$",
+            "(?i)^YouLoad.*Setup.*\\.exe$"
+        ]
+    },
+    "packages": [
+        {
+            "name": "PySide6",
+            "distribution": "PySide6",
+            "source": "pypi",
+            "update_strategy": "app_release"
+        },
+        {
+            "name": "PySide6 Essentials",
+            "distribution": "PySide6_Essentials",
+            "source": "pypi",
+            "update_strategy": "app_release"
+        },
+        {
+            "name": "PySide6 Addons",
+            "distribution": "PySide6_Addons",
+            "source": "pypi",
+            "update_strategy": "app_release"
+        },
+        {
+            "name": "Shiboken6",
+            "distribution": "shiboken6",
+            "source": "pypi",
+            "update_strategy": "app_release"
+        },
+        {
+            "name": "yt-dlp",
+            "distribution": "yt-dlp",
+            "source": "pypi",
+            "update_strategy": "binary",
+            "update_id": "yt-dlp"
+        }
+    ],
+    "tools": [
+        {
+            "name": "FFmpeg",
+            "source": "btbn",
+            "update_strategy": "binary",
+            "update_id": "ffmpeg"
+        }
+    ]
+}

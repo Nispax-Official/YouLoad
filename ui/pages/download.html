@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouLoad</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<section class="page-view page" data-view="download">
+    <div class="page-heading">
+        <h1>Download a video</h1>
+        <p>Paste a YouTube URL to get started.</p>
+    </div>
+
+    <div class="url-row">
+        <input
+            id="videoUrl"
+            type="text"
+            placeholder="https://www.youtube.com/watch?v=..."
+            autocomplete="off"
+            spellcheck="false"
+        >
+
+        <button
+            id="checkButton"
+            class="primary-button"
+            type="button"
+        >
+            Check
+        </button>
+    </div>
+
+    <div id="urlMessage" class="url-message"></div>
+
+    <div id="loaderView" class="loader-view is-hidden">
+        <div class="spinner"></div>
+
+        <div class="loader-title">
+            Loading video
+        </div>
+
+        <div class="loader-subtitle">
+            Fetching video information
+        </div>
+    </div>
+
+    <div id="videoView" class="video-view is-hidden">
+        <img
+            id="videoThumbnail"
+            class="video-thumbnail"
+            alt=""
+        >
+
+        <div class="video-details">
+            <h2 id="videoTitle">
+                Video title
+            </h2>
+
+            <div class="video-meta">
+                <span id="videoCreator">
+                    Creator
+                </span>
+
+                <span>•</span>
+
+                <span id="videoDuration">
+                    Duration
+                </span>
+            </div>
+
+            <div class="download-options download-options-grid">
+                <div class="option-field">
+                    <label for="videoQualitySelect">
+                        Video quality
+                    </label>
+
+                    <select
+                        id="videoQualitySelect"
+                        class="quality-select"
+                    >
+                        <option value="">
+                            Loading qualities...
+                        </option>
+                    </select>
+                </div>
+
+                <div class="option-field">
+                    <label for="audioQualitySelect">
+                        Audio quality
+                    </label>
+
+                    <select
+                        id="audioQualitySelect"
+                        class="quality-select"
+                    >
+                        <option value="">
+                            Loading audio...
+                        </option>
+                    </select>
+
+                    <div class="option-hint">
+                        Original audio only
+                    </div>
+                </div>
+
+                <div class="option-field">
+                    <label>
+                        Save to
+                    </label>
+
+                    <button
+                        id="chooseFolderButton"
+                        class="folder-button"
+                        type="button"
+                    >
+                        <span id="downloadFolder">
+                            Downloads
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="download-actions">
+                <button
+                    id="audioOnlyButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Audio only
+                </button>
+
+                <button
+                    id="downloadButton"
+                    class="primary-button"
+                    type="button"
+                    disabled
+                >
+                    Download
+                </button>
+
+                <button
+                    id="queueButton"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Add to queue
+                </button>
+            </div>
+
+            <div class="download-note">
+                YouLoad selects the original audio track and lets you
+                choose video and audio quality independently. FFmpeg is
+                used when the selected streams need to be merged.
+            </div>
+        </div>
+    </div>
+
+    <div
+        id="downloadProgress"
+        class="download-progress is-hidden"
+    >
+        <div class="download-progress-head">
+            <span id="downloadProgressTitle">
+                Downloading
+            </span>
+
+            <span id="downloadProgressPercent">
+                0%
+            </span>
+        </div>
+
+        <div class="progress-track">
+            <div
+                id="downloadProgressBar"
+                class="progress-bar"
+            ></div>
+        </div>
+
+        <div class="download-progress-meta">
+            <span id="downloadProgressSpeed">
+                Waiting
+            </span>
+
+            <span id="downloadProgressEta"></span>
+        </div>
+
+        <div class="download-progress-actions">
+            <button
+                id="cancelDownloadButton"
+                class="secondary-button"
+                type="button"
+            >
+                Cancel
+            </button>
+
+            <button
+                id="openDownloadFolderButton"
+                class="secondary-button is-hidden"
+                type="button"
+            >
+                Open folder
+            </button>
+        </div>
+    </div>
+</section>
+
+<script src="../js/page.js"></script>
+</body>
+</html>

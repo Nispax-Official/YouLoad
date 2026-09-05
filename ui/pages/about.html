@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About YouLoad</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <section class="page-view page" data-view="about">
+        <div class="page-heading">
+            <h1>About YouLoad</h1>
+            <p>A desktop video downloader developed by NISPAX InfoTech.</p>
+        </div>
+
+        <div class="about-group">
+            <h2>What is YouLoad?</h2>
+            <p>
+                YouLoad is a desktop application built to fetch video
+                metadata and provide a local interface for downloading
+                supported online video content.
+            </p>
+        </div>
+
+        <div class="about-group">
+            <h2>How it is built</h2>
+            <p>
+                The application uses Python for its desktop and application
+                layer, Qt through PySide6 for the desktop interface, and
+                HTML, CSS and JavaScript for the user interface.
+            </p>
+            <p>
+                Video metadata and download operations are handled through
+                yt-dlp. FFmpeg is used when media processing or stream
+                merging requires it.
+            </p>
+        </div>
+
+        <div class="about-group">
+            <h2>Technology</h2>
+            <p>
+                Python · PySide6 · Qt WebEngine · HTML · CSS · JavaScript ·
+                yt-dlp · FFmpeg
+            </p>
+        </div>
+
+        <div class="about-group">
+            <h2>Application structure</h2>
+            <p>
+                The UI is separated into individual page documents for Home,
+                Download, Queue, History, Settings, About and Disclaimer.
+                The Python layer handles application services and
+                communication with the web interface.
+            </p>
+        </div>
+
+        <div class="about-group">
+            <h2>Third-party software</h2>
+            <p>
+                YouLoad uses third-party software and libraries. Their own
+                licenses, copyright notices and distribution requirements
+                continue to apply. Official releases should include the
+                applicable third-party notices alongside the bundled
+                components.
+            </p>
+        </div>
+
+        <div class="about-group">
+            <h2>Development</h2>
+            <p>
+                YouLoad is designed as a modular Windows desktop application
+                so the interface, download engine, bundled components and
+                updater can evolve independently.
+            </p>
+        </div>
+
+        <footer class="page-footer">
+            <div>
+                © <span data-current-year></span> NISPAX InfoTech.
+                All rights reserved.
+            </div>
+
+            <div>
+                Developed and distributed by NISPAX InfoTech.
+            </div>
+        </footer>
+    </section>
+
+    <script src="../js/page.js"></script>
+</body>
+</html>
