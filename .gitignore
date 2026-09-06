@@ -8,3 +8,5 @@ release/
 youload.zip
 runtime/ffmpeg/*.exe*
 runtime/yt-dlp.exe
+installer/*.wixpdb
+installer/generated-files.wxs

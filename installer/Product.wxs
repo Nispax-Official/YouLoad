@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Package Name="YouLoad" Manufacturer="NISPAX InfoTech" Version="$(var.ProductVersion)" UpgradeCode="{A6D27D71-1B48-4C52-8A3B-7D4A8A4B6F10}" Scope="perMachine">
+        <MajorUpgrade DowngradeErrorMessage="A newer version of YouLoad is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+        <StandardDirectory Id="ProgramFiles64Folder">
+            <Directory Id="INSTALLFOLDER" Name="YouLoad" />
+        </StandardDirectory>
+        <Feature Id="MainFeature" Title="YouLoad" Level="1">
+            <ComponentGroupRef Id="YouLoadFiles" />
+            <ComponentRef Id="ApplicationShortcut" />
+        </Feature>
+        <Component Id="ApplicationShortcut" Directory="ProgramMenuFolder">
+            <Shortcut Id="YouLoadShortcut" Name="YouLoad" Target="[INSTALLFOLDER]YouLoad.exe" WorkingDirectory="INSTALLFOLDER" Icon="YouLoadIcon" />
+            <RegistryValue Root="HKCU" Key="Software\NISPAX\YouLoad" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+        </Component>
+        <Icon Id="YouLoadIcon" SourceFile="ui\assets\youload-icon.ico" />
+    </Package>
+
+    <Fragment>
+        <ComponentGroup Id="YouLoadFiles" Directory="INSTALLFOLDER">
+            <Files Include="$(var.PublishDir)\**" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

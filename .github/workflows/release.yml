@@ -1,0 +1,54 @@
+name: Build YouLoad release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        shell: pwsh
+        run: python -m pip install -r requirements.txt -r requirements-build.txt
+      - name: Download runtimes
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path runtime\ffmpeg | Out-Null
+          Invoke-WebRequest https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe -OutFile runtime\yt-dlp.exe
+          Invoke-WebRequest https://github.com/BtbN/FFmpeg-Builds/releases/latest/download/ffmpeg-master-latest-win64-gpl.zip -OutFile ffmpeg.zip
+          Expand-Archive ffmpeg.zip -DestinationPath ffmpeg-extracted -Force
+          Copy-Item (Get-ChildItem ffmpeg-extracted -Recurse -Filter ffmpeg.exe | Select-Object -First 1) runtime\ffmpeg\ffmpeg.exe
+          Copy-Item (Get-ChildItem ffmpeg-extracted -Recurse -Filter ffprobe.exe | Select-Object -First 1) runtime\ffmpeg\ffprobe.exe
+      - name: Build application
+        shell: pwsh
+        run: python -m PyInstaller --noconfirm --clean packaging\YouLoad.spec
+      - name: Build EXE installer
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $env:YOULOAD_VERSION = "${{ github.ref_name }}".TrimStart('v')
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" installer\YouLoad.iss
+      - name: Build MSI installer
+        shell: pwsh
+        run: |
+          dotnet tool install --global wix
+          wix eula accept wix7
+          $version = "${{ github.ref_name }}".TrimStart('v')
+          wix build -d ProductVersion=$version -d PublishDir="$PWD\dist\YouLoad" installer\Product.wxs -o "release\YouLoad-$version.msi"
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            release/YouLoad-*-Setup.exe
+            release/YouLoad-*.msi
