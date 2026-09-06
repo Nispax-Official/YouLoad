@@ -23,10 +23,11 @@ LicenseFile=..\LICENSE
 
 [Files]
 Source: "..\dist\YouLoad\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\ui\assets\youload-icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{autoprograms}\YouLoad"; Filename: "{app}\{#AppExeName}"
-Name: "{autodesktop}\YouLoad"; Filename: "{app}\{#AppExeName}"
+Name: "{autoprograms}\YouLoad"; Filename: "{app}\{#AppExeName}"; IconFilename: "{app}\youload-icon.ico"
+Name: "{autodesktop}\YouLoad"; Filename: "{app}\{#AppExeName}"; IconFilename: "{app}\youload-icon.ico"
 
 [Run]
 Filename: "{app}\{#AppExeName}"; Description: "Launch YouLoad"; Flags: nowait postinstall skipifsilent
