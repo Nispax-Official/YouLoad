@@ -10,6 +10,7 @@ a = Analysis(
     datas=[
         (str(project_root / "ui"), "ui"),
         (str(project_root / "runtime"), "runtime"),
+        (str(project_root / "updater" / "components.json"), "updater"),
     ],
     hiddenimports=[],
     hookspath=[],
@@ -20,6 +21,7 @@ a = Analysis(
 )
 
 pyz = PYZ(a.pure)
+
 exe = EXE(
     pyz,
     a.scripts,
