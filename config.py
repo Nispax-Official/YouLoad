@@ -1,6 +1,6 @@
 APP_NAME = "YouLoad"
 APP_TAGLINE = "by NISPAX InfoTech"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 
 WORDMARK_FONT = "Jokerman"
 UI_FONT = "Segoe UI"
